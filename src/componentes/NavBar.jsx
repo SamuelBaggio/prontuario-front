@@ -24,11 +24,6 @@ export default function NavBar(){
                         Prontuários
                     </Link>
                 </li>
-                <li>
-                    <Link href="/cdConsultas">
-                        Consultas
-                    </Link>
-                </li>
             </ul>
             <div className='text-xl text-slate-50 items-center flex'>
                 <i class="bi bi-search"></i>
