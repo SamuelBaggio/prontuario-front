@@ -7,7 +7,7 @@ export default function CardPaciente({paciente}){
             </div>
             <div className="">
                 <h5> {nome }</h5>
-                <h5> {nome }</h5>
+                <h5> {email }</h5>
             </div>
         </div>
     )
