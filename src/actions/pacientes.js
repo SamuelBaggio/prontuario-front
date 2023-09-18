@@ -2,7 +2,13 @@
 
 import { revalidatePath } from "next/cache"
 
-const url = 'http://localhost:8080/api' + "/pacientes"
+  let url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:8080/api/pacientes"
+      : "https://prontuario-back.up.railway.app/api/pacientes"; 
+
+  // const url = 'https://prontuario-back.up.railway.app/api/pacientes';
+
 
 export async function create(formData) {
     const options = {
