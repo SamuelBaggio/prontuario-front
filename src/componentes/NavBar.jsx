@@ -26,7 +26,7 @@ export default function NavBar(){
                 </li>
             </ul>
             <div className='text-xl text-slate-50 items-center flex'>
-                <i class="bi bi-search"></i>
+                <i className="bi bi-search"></i>
                 <div className="h-9 w-9 rounded-full overflow-hidden ml-7">
                     <img src="https://i.pravatar.cc/100" alt="avatar do usuário" /> 
                 </div>

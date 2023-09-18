@@ -18,15 +18,14 @@ export default function FormContas() {
             setMessage(res.message)
             return
         }
-        redirect("/pacientes")
+        redirect("/cdPacientes")
     }
 
     return (
         <>
             <NavBar />
-
-            <main className="p-11 mt-10 rounded-lg text-slate-800 max-w-md m-auto">
-                <h2 className="text-2xl font-bold">Cadastrar Pacientes</h2>
+            <main className="p-11 mt-10 rounded-lg text-slate-800 max-w-3xl m-auto">
+                <h2 className="text-2xl font-bold mb-2">Cadastrar Paciente</h2>
 
                 <form action={handleSubmit}>
                     <InputText label="Nome" id="nome" name="nome" />
