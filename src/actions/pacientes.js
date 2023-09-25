@@ -1,6 +1,7 @@
 'use server'
 
 import { revalidatePath } from "next/cache"
+import { cookies } from "next/headers"
 
   let url =
     process.env.NODE_ENV === "development"
@@ -29,18 +30,20 @@ export async function create(formData) {
 }
 
 export async function getPacientes(){
-  await new Promise(r => setTimeout(r, 5000));
-
-  const result = await fetch(url, {
-    cache: 'no-cache'
-  })
-  const json = await result.json()
-
-  if (!result.ok){
-    const message = json.message
-    throw new Error(`Falha ao obter dados das contas. (${result.status} - ${message} )` )
+  const token = cookies().get("prontuario_token")
+  const options = {
+    headers: {
+      "Authorization": `Bearer ${token.value}`
+    }
   }
 
+  const result = await fetch(url, options)
+
+  if(result.status != 200){
+    throw new Error(`Falha ao obter dados das contas. (${result.status})`)
+  }
+
+  const json = await result.json()
   return json
 }
 
@@ -82,5 +85,3 @@ export async function update(conta){
   revalidatePath("/contas")
   return {ok: "Conta criada com sucesso"}
 }
-
-   
